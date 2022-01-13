@@ -1,0 +1,61 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main() {
+    int t(0);
+    cin >> t;
+    while (t!=0) {
+        if (t==1) {
+            int A(0),B(0),temp(0);
+            cin >> A >> B;
+            temp=A;
+            A=B;
+            B=temp;
+            cout << A << " " << B;
+        }
+        if (t==2) {
+            int A(0),B(0),C(0),temp(0);
+            cin >> A >> B >> C;
+            temp=A;
+            A=C;
+            C=B;
+            B=temp;
+            cout << A << " " << B << " " << C;
+        }
+        if (t==3) {
+            int A(0),B(0),C(0),temp(0);
+            cin >> A >> B >> C;
+            temp=A;
+            A=B;
+            B=C;
+            C=temp;
+            cout << A << " " << B << " " << C;
+        }
+        if (t==4) {
+            int x(0);
+            cin >> x;
+            int y=3*pow(x,6)-6*pow(x,2)-7;
+            cout << y;
+        }
+        if (t==5) {
+            int x(0);
+            cin >> x;
+            int y=4*pow((x-3),6)-7*pow((x-3),3)+2;
+            cout << y;
+        }
+        if (t==6) {
+            int A(0);
+            cin >> A;
+            int A1=pow(A,5);
+            cout << A1*A*A*A;
+        }
+        if (t==7) {
+            int A(0);
+            cin >> A;
+            int A1=pow(A,2);
+            int A2=pow(A1,5);
+            cout << A2*A*A*A*A*A;
+        }
+        cin >> t;
+    }
+}
