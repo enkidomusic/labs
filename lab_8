@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+int main() {
+    cout << "Введите номер задания(1-5). Для выхода введите 0" << endl;
+    int x(0);
+    cin >> x;
+    switch(x)
+    {
+    case 1:
+    {
+        int file(0);
+        cin >> file;
+        cout << file/1024;
+        break;
+    }
+    case 2:
+    {
+        int A(0),B(0);
+        cin >> A >> B;
+        cout << A/B;
+        break;
+    }
+    case 3:
+    {
+        int A(0),B(0);
+        cin >> A >> B;
+        cout << A%B;
+        break;
+    }
+    case 4:
+    {
+        int chislo(0);
+        cin >> chislo;
+        int a=chislo/10;
+        int b=chislo%10;
+        cout << b << a;
+        break;
+    }
+    case 5:
+    {
+        int A(0);
+        cin >> A;
+        int g=A/100;
+        A%=100;
+        cout << A << g;
+    }
+    }
+    return 0;
+}
