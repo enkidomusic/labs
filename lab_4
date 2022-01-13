@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+int main() {
+    setlocale(LC_ALL, "Russian");
+    int variant(1);
+    while (variant != 0) {
+        float a(0), b(0), d(0), pi(0);
+        cout << "Выберите задание(1, 2, 3, 4, 5)(для выхода нажмите '0': ";
+        cin >> variant;
+        if (variant == 1) {
+            cin >> a >> b;
+            cout << a * b << " " << 2 * (a + b) << endl;
+        }
+        if (variant == 2) {
+            cin >> d;
+            cout << pi * d << endl;
+        }
+        if (variant == 3) {
+            cin >> a >> b;
+            cout << (a + b) / 2 << endl;
+        }
+        if (variant == 4) {
+            cin >> a >> b;
+            a *= a;
+            b *= b;
+            cout << a + b << " " << a - b << " " << a * b << " " << a / b << endl;
+        }
+        if (variant == 5) {
+            cin >> a >> b;
+            a = abs(a);
+            b = abs(b);
+            cout << a + b << " " << a - b << " " << a * b << " " << a / b << endl;
+        }
+    }
+}
