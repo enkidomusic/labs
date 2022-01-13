@@ -1,0 +1,59 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int task;
+    do {
+        cout << "Choose a task. Type 0 to exit" << endl;
+        
+        cin >> task;
+        switch(task) {
+            case 1:
+            {
+                int seconds;
+                cin >> seconds;
+                cout << seconds%60 << endl;
+                break;
+            }
+            case 2:
+            {
+                int days;
+                cin >> days;
+                int result = days%7;
+                if (result==0) cout << "7" << endl;
+                else
+                cout << result << endl;
+                break;
+            }
+            case 3:
+            {
+                int days;
+                int N;
+                cin >> days >> N;
+                int result = days%7 + N - 1;
+                if (result==0) cout << "7" << endl;
+                else
+                cout << result << endl;
+                break;
+            }
+            case 4:
+            {
+                int A,B,C;
+                cin >> A >> B >> C;
+                cout << (A*B)/(C*C) << endl << (A*B)%(C*C) << endl;
+                break;
+            }
+            case 5:
+            {
+                int K;
+                cin >> K;
+                int result=K/100;
+                if ((K%100)>0) cout << result+1 << endl;
+                else cout << result << endl;
+            }
+        }
+    }
+    while (task!=0);
+}
