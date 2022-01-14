@@ -1,0 +1,97 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int task(0);
+	do {
+		cin >> task;
+		switch (task) {
+		case 1:
+		{
+			int N;
+			cin >> N;
+			float* arr = new float[N];
+			for (int i = 0; i < N; i++) {
+				cin >> arr[i];
+			}
+			int K, L;
+			cin >> K >> L;
+			int summ(0), count(0);
+			for (int i = K; i <= L; i++) {
+				summ += arr[i-1];
+				count++;
+			}
+			cout << summ / count << endl;
+			break;
+		}
+		case 2:
+		{
+			int N;
+			cin >> N;
+			int* arr = new int[N];
+			for (int i = 0; i < N; i++) {
+				cin >> arr[i];
+			}
+			int prog = arr[1] - arr[0];
+			bool n(true);
+			for (int i = 1; i < N-1; i++) {
+				if (arr[i + 1] - arr[i] != prog) {
+					cout << "0" << endl;
+					n = false;
+					break;
+				}
+			}
+			if (n) cout << prog << endl;
+			break;
+		}
+		case 3:
+		{
+			int N;
+			cin >> N;
+			float* A = new float[N];
+			for (int i = 0; i < N; i++) {
+				cin >> A[i];
+			}
+			float min = A[2];
+			for (int i = 4; i < N; i += 2) {
+				if (A[i] < min) min = A[i];
+			}
+			cout << min << endl;
+			break;
+		}
+		case 4:
+		{
+			int N;
+			cin >> N;
+			float* arr = new float[N];
+			for (int i = 0; i < N; i++) {
+				cin >> arr[i];
+			}
+			for (int i = N - 2; i > 0; i--) {
+				if (arr[i] > arr[i + 1] && arr[i] > arr[i - 1]) {
+					cout << i << endl;
+					break;
+				}
+			}
+			break;
+		}
+		case 5:
+		{
+			int N;
+			cin >> N;
+			float* arr = new float[N];
+			for (int i = 0; i < N; i++) {
+				cin >> arr[i];
+			}
+			for (int i = 0; i < N - 1; i++) {
+				for (int j = i + 1; j < N; j++) {
+					if (arr[i] == arr[j]) {
+						cout << i << " " << j << endl;
+						break;
+					}
+				}
+			}
+			break;
+		}
+		}
+	} while (task != 0);
+}
