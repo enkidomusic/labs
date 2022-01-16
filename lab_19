@@ -1,0 +1,201 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "Russian");
+	int task(0);
+	do {
+		cout << endl << "Введите номер задания" << endl;
+		cin >> task;
+		switch (task) {
+		case 1:
+		{
+			cout << endl << "Введите размер массива" << endl;
+			int N;
+			cin >> N;
+			int *arr = new int[N];
+			cout << endl << "Введите значения массива" << endl;
+			for (int i = 0; i < N; i++) {
+				cin >> arr[i];
+			}
+			int temp = arr[0];
+			for (int i = 1; i < N; i++) {
+				if (arr[i] == temp) {
+					temp = arr[i];
+					arr[i] = 0;
+				}
+				else temp = arr[i];
+			}
+			cout << endl << "Новый массив:" << endl;
+			for (int i = 0; i < N; i++) {
+				cout << arr[i] << endl;
+			}
+			cout << endl;
+			break;
+		}
+		case 2:
+		{
+			cout << endl << "Введите размер массива" << endl;
+			int N;
+			cin >> N;
+			int* arr = new int[N];
+			cout << endl << "Введите значения массива" << endl;
+			for (int i = 0; i < N; i++) {
+				cin >> arr[i];
+			}
+			int* arr2 = new int[N];
+			int* count = new int[N];
+			for (int i = 0; i < N; i++) {
+				arr2[i] = 0;
+				count[i] = 0;
+			}
+			int counter = 0;
+			for (int i = 0; i < N; i++) {
+				bool b = false;
+				for (int j = 0; j < N; j++) {
+					if (arr2[j] == arr[i]) {
+						count[j]++;
+						b = true;
+						break;
+					}
+				}
+				if (!b) {
+					arr2[counter] = arr[i];
+					count[counter]++;
+					counter++;
+				}
+			}
+			//for (int i = 0; i < N; i++) {
+			//	cout << arr2[i] << " " << count[i] << endl;
+			//}
+			for (int i = 0; i < N; i++) {
+				for (int j = 0; j < N; j++) {
+					if (arr2[j] == arr[i] && count[j] == 2) {
+						arr[i] = 0;
+					}
+				}
+			}
+			//for (int i = 0; i < N; i++) {
+			//	cout << arr[i] << endl;
+			//}
+			vector <int> new_mas;
+			for (int i = 0; i < N; i++) {
+				if (arr[i] != 0) new_mas.push_back(arr[i]);
+			}
+			cout << endl << "Размер нового массива:" << endl << size(new_mas) << endl;
+			cout << endl << "Новый массив:" << endl;
+			for (int i = 0; i < size(new_mas); i++) {
+				cout << new_mas[i] << endl;
+			}
+			break;
+		}
+		case 3:
+		{
+			cout << endl << "Введите размер массива" << endl;
+			int N;
+			cin >> N;
+			vector <float> vec;
+			cout << endl << "Введите значения массива" << endl;
+			for (int i = 0; i < N; i++) {
+				float a;
+				cin >> a;
+				vec.push_back(a);
+			}
+			vec.push_back(0);
+			vec.push_back(0);
+			int min = vec[0], max = vec[0], min_num(0), max_num(0);
+			for (int i = 0; i < N; i++) {
+				if (vec[i] > max) {
+					max = vec[i];
+					max_num = i;
+				}
+				if (vec[i] < min) {
+					min = vec[i];
+					min_num = i;
+				}
+			}
+			for (int i = N; i > min_num; i--) {
+				vec[i] = vec[i - 1];
+			}
+			vec[min_num]=0;
+			for (int i=N+1;i>max_num+1;i--) {
+				vec[i] = vec[i - 1];
+			}
+			vec[max_num+2] = 0;
+			cout << endl;
+			cout << endl << "Новый массив:" << endl;
+			for (int i = 0; i < N+2;i++) {
+				cout << vec[i] << endl;
+			}
+			break;
+		}
+		case 4:
+		{
+			cout << endl << "Введите размер массива" << endl;
+			int N;
+			cin >> N;
+			vector <float> vec;
+			cout << endl << "Введите значения массива" << endl;
+			for (int i = 0; i < N; i++) {
+				float a;
+				cin >> a;
+				vec.push_back(a);
+			}
+			int neg_count(0);
+			for (int i = 0; i < N; i++) {
+				if (vec[i] < 0) neg_count++;
+			}
+			for (int i = 0; i < neg_count; i++) {
+				vec.push_back(0);
+			}
+			for (int i = 0; i < N+neg_count; i++) {
+				if (vec[i] < 0) {
+					for (int j = N + neg_count-1; j > i; j--) {
+						vec[j] = vec[j - 1];
+					}
+					vec[i+1] = 0;
+				}
+			}
+			cout << endl << "Новый массив:" << endl;
+			for (int i = 0; i < N + neg_count; i++) {
+				cout << vec[i] << endl;
+			}
+			break;
+		}
+		case 5:
+		{
+			cout << endl << "Введите размер массива" << endl;
+			int N;
+			cin >> N;
+			vector <float> vec;
+			cout << endl << "Введите значения массива" << endl;
+			for (int i = 0; i < N; i++) {
+				float a;
+				cin >> a;
+				vec.push_back(a);
+			}
+			int pos_count(0);
+			for (int i = 0; i < N; i++) {
+				if (vec[i] > 0) pos_count++;
+			}
+			for (int i = 0; i < pos_count; i++) {
+				vec.push_back(0);
+			}
+			for (int i = 0; i < N + pos_count; i++) {
+				if (vec[i] > 0) {
+					for (int j = N + pos_count - 1; j > i; j--) {
+						vec[j] = vec[j - 1];
+					}
+					vec[i] = 0;
+					i++;
+				}
+			}
+			cout << endl << "Новый массив:" << endl;
+			for (int i = 0; i < N + pos_count; i++) {
+				cout << vec[i] << endl;
+			}
+			break;
+		}
+		}
+	} while (task != 0);
+}
